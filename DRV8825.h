@@ -12,7 +12,7 @@ class DRV8825 {
 	void Enable(bool);
 	void Direction(bool);
 	void Initialize();
-	void Runtostep(int);
+	void Runtostep(int, bool);
 	bool directionRot() {return dir;}
 	bool enablestatus() {return enbl;}
 };
@@ -51,19 +51,20 @@ void DRV8825::Enable (bool enableCont) { //Enable Stepper Controller uses PORTD2
 }
 
 void DRV8825::Direction(bool directionCont) { //Set Stepper Direction uses PORTD3
-	if (directionCont) {
+	if (directionCont) { //true is counter-clockwise, the direction the wire normally feeds
 	dir = true;
 	PORTD = (1 << PORTD3);
 	}
-	else {
+	else { //false is clockwise
 	dir = false;
 	PORTD = (0 << PORTD3);
 	}	
 }
 
-void DRV8825::Runtostep(int stepCount) {
+void DRV8825::Runtostep(int stepCount, bool directionCont) { //200*32 microsteps per revolution meaning 6400 is one revolution
 	long countcurrent = count;
-	while (countcurrent < (count+stepCount)) {
+	this->Direction(directionCont);
+	while (count < (countcurrent+stepCount+1)) { //+1 to account for setup time when the enable pin goes high
 		this->Enable(true);
 	}
 	this->Enable(false);

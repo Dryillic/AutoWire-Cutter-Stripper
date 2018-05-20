@@ -36,7 +36,10 @@ int main(void)
 		MainStepper.Direction(false);
 		_delay_ms(3000);
 		MainStepper.Enable(false);
-		_delay_ms(2000);
+		_delay_ms(5000);
+		MainStepper.Runtostep(6400,true); //full rotation counter-clockwise
+		_delay_ms(3000);
+		MainStepper.Runtostep(3200,false); //half rotation clockwise
     }
 }
 
