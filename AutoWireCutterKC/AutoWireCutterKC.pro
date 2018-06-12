@@ -1,4 +1,4 @@
-update=6/5/2018 7:56:49 AM
+update=6/11/2018 10:58:24 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,9 +23,11 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
+[general]
+version=1
 [eeschema]
 version=1
-LibDir=
+LibDir=C:/Users/danan/Downloads/Driver_Motor
 [eeschema/libraries]
 LibName1=power
 LibName2=device
@@ -59,5 +61,5 @@ LibName29=opto
 LibName30=atmel
 LibName31=contrib
 LibName32=valves
-[general]
-version=1
+LibName33=C:/Users/danan/Downloads/Driver_Motor/Driver_Motor
+LibName34=C:/Users/danan/Downloads/Open-ROB-master/Open-ROB-master/Kicad/Librairie/POLOLU-DRV8825/pololu-drv8825
