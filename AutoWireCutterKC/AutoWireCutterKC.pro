@@ -1,4 +1,4 @@
-update=6/11/2018 10:58:24 PM
+update=6/12/2018 8:13:37 AM
 version=1
 last_client=kicad
 [pcbnew]
@@ -27,7 +27,7 @@ NetIExt=net
 version=1
 [eeschema]
 version=1
-LibDir=C:/Users/danan/Downloads/Driver_Motor
+LibDir=../../../KiCAD Libs
 [eeschema/libraries]
 LibName1=power
 LibName2=device
@@ -63,3 +63,5 @@ LibName31=contrib
 LibName32=valves
 LibName33=C:/Users/danan/Downloads/Driver_Motor/Driver_Motor
 LibName34=C:/Users/danan/Downloads/Open-ROB-master/Open-ROB-master/Kicad/Librairie/POLOLU-DRV8825/pololu-drv8825
+LibName35=C:/Users/dnatov/Documents/KiCAD Libs/Driver_Motor/Driver_Motor
+LibName36=C:/Users/dnatov/Documents/KiCAD Libs/POLOLU-DRV8825/pololu-drv8825
