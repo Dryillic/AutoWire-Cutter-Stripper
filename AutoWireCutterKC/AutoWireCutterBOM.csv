@@ -20,7 +20,7 @@ Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet
 ,,J5,LCD Power,conn:Conn_01x02,Pin_Headers:Pin_Header_Angled_1x02_Pitch2.54mm,
 ,,J6,Servo,conn:Conn_01x03,Pin_Headers:Pin_Header_Angled_1x03_Pitch2.54mm,
 ,,J8,Barrel_Jack,conn:Barrel_Jack,Connectors:Barrel_Jack_CUI_PJ-102AH,
-,,J9,Stepper,conn:Conn_01x04,Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm,
+,,J9,Stepper,conn:Conn_01x04,S4B-PH-SM4-TB,
 ,,M1,Conn_01x01_Male,conn:Conn_01x01_Male,,
 ,,M2,Conn_01x01_Male,conn:Conn_01x01_Male,,
 ,,M3,Conn_01x01_Male,conn:Conn_01x01_Male,,
