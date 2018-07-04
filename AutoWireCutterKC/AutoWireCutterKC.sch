@@ -128,13 +128,13 @@ $EndComp
 $Comp
 L Conn_01x04 J9
 U 1 1 5B1801EF
-P 6600 5050
-F 0 "J9" H 6600 5250 50  0000 C CNN
-F 1 "Stepper" H 6600 4750 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm" H 6600 5050 50  0001 C CNN
-F 3 "" H 6600 5050 50  0001 C CNN
-	1    6600 5050
-	1    0    0    -1  
+P 6600 5150
+F 0 "J9" H 6600 5350 50  0000 C CNN
+F 1 "Stepper" H 6600 4850 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm" H 6600 5150 50  0001 C CNN
+F 3 "" H 6600 5150 50  0001 C CNN
+	1    6600 5150
+	1    0    0    1   
 $EndComp
 $Comp
 L GND #PWR03
