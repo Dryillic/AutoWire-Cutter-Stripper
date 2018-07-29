@@ -192,17 +192,6 @@ F 3 "" H 3300 5500 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L MCP1700-5002E_SOT23 U2
-U 1 1 5B1E96C1
-P 8950 4450
-F 0 "U2" H 8800 4575 50  0000 C CNN
-F 1 "MCP1700_SOT23" H 8950 4575 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 8950 4675 50  0001 C CNN
-F 3 "" H 8950 4450 50  0001 C CNN
-	1    8950 4450
-	1    0    0    -1  
-$EndComp
-$Comp
 L Barrel_Jack J8
 U 1 1 5B1E977C
 P 9250 2100
@@ -575,11 +564,7 @@ Wire Wire Line
 Wire Wire Line
 	9300 4500 9300 4450
 Wire Wire Line
-	9250 4450 9600 4450
-Wire Wire Line
 	8450 4500 8450 4450
-Wire Wire Line
-	8150 4450 8650 4450
 Wire Wire Line
 	9250 2400 9250 2700
 Wire Wire Line
@@ -610,7 +595,6 @@ Wire Wire Line
 Wire Wire Line
 	6000 4200 5950 4200
 Connection ~ 5950 4200
-Connection ~ 8650 4450
 Connection ~ 8150 4450
 Connection ~ 9600 4450
 Connection ~ 9300 4800
@@ -621,7 +605,6 @@ Connection ~ 9400 4000
 Connection ~ 9700 3650
 Connection ~ 9250 3650
 Connection ~ 8650 3650
-Connection ~ 8950 4750
 Connection ~ 8950 4850
 Connection ~ 6600 3800
 Connection ~ 6250 3200
@@ -767,10 +750,10 @@ F 3 "" H 13200 2950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR?
+L GND #PWR021
 U 1 1 5B21B02C
 P 13700 2700
-F 0 "#PWR?" H 13700 2450 50  0001 C CNN
+F 0 "#PWR021" H 13700 2450 50  0001 C CNN
 F 1 "GND" H 13700 2550 50  0000 C CNN
 F 2 "" H 13700 2700 50  0001 C CNN
 F 3 "" H 13700 2700 50  0001 C CNN
@@ -786,4 +769,19 @@ Wire Wire Line
 Wire Wire Line
 	13550 2950 13400 2950
 Connection ~ 13550 2700
+$Comp
+L LM3480-5.0 U2
+U 1 1 5B55ECDD
+P 8950 4450
+F 0 "U2" H 8800 4575 50  0000 C CNN
+F 1 "LM3480-5.0" H 8950 4575 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 8950 4675 50  0001 C CIN
+F 3 "" H 8950 4450 50  0001 C CNN
+	1    8950 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8150 4450 8650 4450
+Wire Wire Line
+	9250 4450 9600 4450
 $EndSCHEMATC
