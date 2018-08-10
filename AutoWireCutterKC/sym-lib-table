@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name AutoWireCutterKC-rescue)(type Legacy)(uri ${KIPRJMOD}/AutoWireCutterKC-rescue.lib)(options "")(descr ""))
+  (lib (name pololu-drv8825)(type Legacy)(uri "C:/Users/dnatov/Documents/KiCAD Libs/POLOLU-DRV8825/pololu-drv8825.lib")(options "")(descr ""))
+)
