@@ -145,9 +145,18 @@ int main(void)
 	DRV8825 MainStepper;
 	MainStepper.Initialize();
 	
+	//Set External Interrupts
+	//sei();
+	
 	// Scratchpad variable
 	int digit;	/* Temporary variable to hold the value of which key is pressed */
 
+	//Init LCD splash screen
+	!( UCSR0A & (1 << UDRE0));
+	UDR0 = form_feed;
+	_delay_ms(5);
+	UDR0 = backlight_on;
+	printf("Welcome!");
 	
 	while(1)
 	{
@@ -157,6 +166,7 @@ int main(void)
 			
 			if (button_down)
 			{
+				//printf("Hello");
 				button_down = 0;
 				digit = keypad();	/* Call the  function "keypad" to return the value of key pressed, and hold it with variable "digit" */
 				switch(digit) /* Now evaluate value of "digit" to match with the LED pattern needed to be exported to Port B */
@@ -164,6 +174,7 @@ int main(void)
 					case '0':
 						MainStepper.Runtostep(6400,true);
 						printf("Rotating Stepper!");
+						//Remove interrupts to allow UART to function
 						break;
 					case '1':
 					case '2':
