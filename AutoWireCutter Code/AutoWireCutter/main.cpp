@@ -29,7 +29,6 @@ volatile int button_down;
 #include "Servo.h"
 #include "DRV8825.h"
 
-
 static inline void ser_init() /* I'm told Static Inline functions are great for things that are called once (like initializing serial) */
 {
 	UCSR0B = (1 << TXEN0) | (1 << RXEN0); /* Serial Transmit and Recieve Enable */
@@ -126,7 +125,8 @@ int main(void)
 	
 	DDRB = 0xF0;	//Configure Port B, Pins b7 to b4 are output. Pins b3 to b0 are input.
 	// CTC for Timer 2 Setup
-	TCCR2B |= (1<<WGM21);	// Configure Timer 2 to CTC (Clear on timer compare) mode?????????????????????????????
+	//Edit by Dana, Set Timer to NOT use pin toggle, very important for proper Stepper function
+	TCCR2A |= (1<<WGM21);	// Configure Timer 2 to CTC (Clear on timer compare) mode?????????????????????????????
 	OCR2A = 260; // Set CTC Value for ~30HZ (From (8mHz Clock / 1024 prescaler) / (target of 30 HZ) = ~260)
 	TCCR2B |= ((1<<CS20) | (1<<CS21) | (1<<CS22)); 	// Setup Timer for 8 mHz with a 1024 prescale
 	
@@ -145,8 +145,10 @@ int main(void)
 	DRV8825 MainStepper;
 	MainStepper.Initialize();
 	
+	_delay_ms(1000);
+	
 	//Set External Interrupts
-	//sei();
+	sei();
 	
 	// Scratchpad variable
 	int digit;	/* Temporary variable to hold the value of which key is pressed */
@@ -173,8 +175,12 @@ int main(void)
 				{
 					case '0':
 						MainStepper.Runtostep(6400,true);
+						_delay_ms(200);
+						while ( !( UCSR0A & (1 << UDRE0))); /* Wait for serial buffer to clear, clear screen, turn on backlight, display text */
+						UDR0 = form_feed;
+						_delay_ms(5);
+						UDR0 = backlight_on;
 						printf("Rotating Stepper!");
-						//Remove interrupts to allow UART to function
 						break;
 					case '1':
 					case '2':
@@ -183,7 +189,26 @@ int main(void)
 					case '5':
 					case '6':
 					case '7':
+						while ( !( UCSR0A & (1 << UDRE0))); /* Allows cases 1-7 to fall through the switch-case */
+						UDR0 = form_feed;
+						_delay_ms(5);
+						UDR0 = backlight_on;
+						printf("The # is:\r");
+						printf("%c", digit);
+						_delay_ms(50);
+						break;
 					case '8':
+						MainServo.Enable(true);
+						_delay_ms(200);
+						MainServo.MoveToAngle(100);
+						_delay_ms(200);
+						MainServo.Enable(false);
+						while ( !( UCSR0A & (1 << UDRE0))); /* Wait for serial buffer to clear, clear screen, turn on backlight, display text */
+						UDR0 = form_feed;
+						_delay_ms(5);
+						UDR0 = backlight_on;
+						printf("Rotating Servo!");
+						break;
 					case '9':
 						while ( !( UCSR0A & (1 << UDRE0))); /* Wait for serial buffer to clear, clear screen, turn on backlight, display text */
 						UDR0 = form_feed;
